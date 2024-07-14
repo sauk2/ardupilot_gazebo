@@ -18,14 +18,16 @@ jobs:
         with:
           submodules: 'recursive'
 
+      - name: Setup Gazebo
+        uses: gazebo-tooling/setup-gazebo@7748abadd60bc4bd3b3f66c2b2e74979bc8f563e
+        with:
+          required-gazebo-distributions: harmonic
+
       - name: Install Build Dependencies
         shell: bash
         run: |
           sudo apt update && sudo apt install --no-install-recommends -y \
-          lsb-release \
-          sudo \
           software-properties-common \
-          wget \
           make \
           cmake \
           ccache \
@@ -40,11 +42,6 @@ jobs:
           gstreamer1.0-plugins-bad \
           gstreamer1.0-libav \
           gstreamer1.0-gl
-
-      - name: Setup Gazebo
-        uses: gazebo-tooling/setup-gazebo@7748abadd60bc4bd3b3f66c2b2e74979bc8f563e
-        with:
-          required-gazebo-distributions: harmonic
 
       # Put ccache into github cache for faster build
       - name: Prepare ccache timestamp
