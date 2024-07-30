@@ -19,7 +19,7 @@ jobs:
           submodules: 'recursive'
 
       - name: Setup Gazebo
-        uses: gazebo-tooling/setup-gazebo@7748abadd60bc4bd3b3f66c2b2e74979bc8f563e
+        uses: gazebo-tooling/setup-gazebo@v0.1.0
         with:
           required-gazebo-distributions: harmonic
 
